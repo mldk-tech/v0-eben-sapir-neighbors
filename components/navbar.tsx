@@ -7,6 +7,7 @@ const navLinks = [
   { label: "הקהילה", href: "#community" },
   { label: "גלריה", href: "#gallery" },
   { label: "שעות הדואר", href: "#post-office" },
+  { label: "מיחזור", href: "#recycling" },
   { label: "כללי הקבוצה", href: "#rules" },
   { label: "צור קשר", href: "#contact" },
 ]
