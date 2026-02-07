@@ -3,91 +3,7 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-
-const categories = [
-  "הכל",
-  "אוכל ושתייה",
-  "אירוח ותיירות",
-  "אומנות ויצירה",
-  "בריאות ורווחה",
-  "גינון ונוף",
-  "בעלי מקצוע",
-]
-
-const businesses = [
-  {
-    name: "יקב הרי יהודה",
-    category: "אוכל ושתייה",
-    description:
-      "יקב בוטיק משפחתי המייצר יינות איכותיים מענבים שגדלים בטרסות הרי ירושלים.",
-    image: "/images/businesses/winery.jpg",
-    phone: "050-1234567",
-  },
-  {
-    name: "שמן זית אבן ספיר",
-    category: "אוכל ושתייה",
-    description:
-      "שמן זית כתית מעולה מכבישה קרה, מזיתי המושב. טעימות בתיאום מראש.",
-    image: "/images/businesses/olive-oil.jpg",
-    phone: "050-2345678",
-  },
-  {
-    name: "דבש הרים",
-    category: "אוכל ושתייה",
-    description:
-      "דבש טבעי מפרחי הבר של הרי יהודה. מגוון טעמים עונתיים וסדנאות דבוראות.",
-    image: "/images/businesses/honey.jpg",
-    phone: "050-3456789",
-  },
-  {
-    name: "קייטרינג ביתי - טעמי הכפר",
-    category: "אוכל ושתייה",
-    description:
-      "אוכל ביתי לאירועים ומפגשים. מטבח ים תיכוני עם חומרי גלם טריים מהמושב.",
-    image: "/images/businesses/catering.jpg",
-    phone: "050-4567890",
-  },
-  {
-    name: "צימר נוף ההרים",
-    category: "אירוח ותיירות",
-    description:
-      "צימר רומנטי עם נוף פנורמי לעמק ולהרי ירושלים. ג'קוזי, מרפסת פרטית ושקט מוחלט.",
-    image: "/images/businesses/tzimmer.jpg",
-    phone: "050-5678901",
-  },
-  {
-    name: "סטודיו קרמיקה - יד ואבן",
-    category: "אומנות ויצירה",
-    description:
-      "סטודיו לקרמיקה וחרסינה. סדנאות יצירה למבוגרים וילדים, מכירת כלים ייחודיים.",
-    image: "/images/businesses/ceramics.jpg",
-    phone: "050-6789012",
-  },
-  {
-    name: "טיפולי רווחה - נשימת ההר",
-    category: "בריאות ורווחה",
-    description:
-      "עיסויים, רפלקסולוגיה וטיפולים הוליסטיים בסביבה שלווה מול נוף הרי יהודה.",
-    image: "/images/businesses/wellness.jpg",
-    phone: "050-7890123",
-  },
-  {
-    name: "גני נוף - עיצוב גינות",
-    category: "גינון ונוף",
-    description:
-      "עיצוב ותחזוקת גינות, מומחיות בצמחייה ים-תיכונית ובגינות מותאמות לאקלים ההרים.",
-    image: "/images/businesses/garden.jpg",
-    phone: "050-8901234",
-  },
-  {
-    name: "נגריית עץ הזית",
-    category: "בעלי מקצוע",
-    description:
-      "נגרות אומן, ריהוט בהתאמה אישית מעצי זית ועצים מקומיים. עבודת יד איכותית.",
-    image: "/images/businesses/carpentry.jpg",
-    phone: "050-9012345",
-  },
-]
+import { businesses, categories } from "@/lib/businesses-data"
 
 export function BusinessDirectory() {
   const [search, setSearch] = useState("")
@@ -227,48 +143,77 @@ export function BusinessDirectory() {
               </p>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filtered.map((business, index) => (
-                  <article
-                    key={business.name}
+                  <Link
+                    key={business.slug}
+                    href={`/businesses/${business.slug}`}
                     className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
-                    <div className="relative h-52 overflow-hidden">
-                      <Image
-                        src={business.image || "/placeholder.svg"}
-                        alt={business.name}
-                        fill
-                        priority={index < 3}
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute top-3 left-3">
-                        <span className="rounded-full bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground backdrop-blur-sm">
-                          {business.category}
-                        </span>
+                    <article>
+                      <div className="relative h-52 overflow-hidden">
+                        <Image
+                          src={business.image || "/placeholder.svg"}
+                          alt={business.name}
+                          fill
+                          priority={index < 3}
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className="rounded-full bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground backdrop-blur-sm">
+                            {business.category}
+                          </span>
+                        </div>
+                        <div className="absolute inset-0 bg-[hsl(25,30%,12%)]/0 transition-colors duration-300 group-hover:bg-[hsl(25,30%,12%)]/10" />
                       </div>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-serif text-xl font-bold text-foreground">
-                        {business.name}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {business.description}
-                      </p>
-                      <div className="mt-4 flex items-center gap-2 text-sm text-accent">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                        </svg>
-                        <span dir="ltr">{business.phone}</span>
+                      <div className="p-5">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="font-serif text-xl font-bold text-foreground">
+                            {business.name}
+                          </h3>
+                          <svg
+                            className="mt-1 shrink-0 text-accent opacity-0 transition-all duration-300 group-hover:opacity-100 rtl:rotate-180"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {business.description}
+                        </p>
+                        <div className="mt-4 flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-sm text-accent">
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <span dir="ltr">{business.phone}</span>
+                          </div>
+                          {business.reviews.length > 0 && (
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 55%, 55%)" stroke="none">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                              </svg>
+                              <span>{business.reviews.length} ביקורות</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </article>
+                    </article>
+                  </Link>
                 ))}
               </div>
             </>
@@ -279,7 +224,7 @@ export function BusinessDirectory() {
       {/* Footer bar */}
       <footer className="border-t border-border bg-card px-6 py-8 text-center">
         <p className="text-sm text-muted-foreground">
-          רוצים להוסיף את העסק שלכם?{" "}
+          {"רוצים להוסיף את העסק שלכם? "}
           <a
             href="https://chat.whatsapp.com/LJ7yzhXhVPB5Ro02taFe6C?mode=gi_t"
             target="_blank"
