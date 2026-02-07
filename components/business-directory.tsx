@@ -226,7 +226,7 @@ export function BusinessDirectory() {
                   : `${filtered.length} מתוך ${businesses.length} עסקים`}
               </p>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {filtered.map((business) => (
+                {filtered.map((business, index) => (
                   <article
                     key={business.name}
                     className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
@@ -236,6 +236,7 @@ export function BusinessDirectory() {
                         src={business.image || "/placeholder.svg"}
                         alt={business.name}
                         fill
+                        priority={index < 3}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute top-3 left-3">
