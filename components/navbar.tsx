@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 
 const navLinks = [
   { label: "אודות", href: "#about" },
@@ -31,6 +32,12 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/businesses"
+            className="rounded-full bg-accent/20 px-4 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent/30"
+          >
+            מרכז העסקים
+          </Link>
         </div>
         <button
           onClick={() => setOpen(!open)}
@@ -58,6 +65,13 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/businesses"
+            onClick={() => setOpen(false)}
+            className="mt-2 block rounded-full bg-accent/20 px-4 py-2 text-center text-sm font-medium text-accent transition-colors hover:bg-accent/30"
+          >
+            מרכז העסקים
+          </Link>
         </div>
       )}
     </nav>

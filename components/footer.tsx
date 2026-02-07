@@ -41,6 +41,12 @@ export function Footer() {
               >
                 כללי הקבוצה
               </a>
+              <a
+                href="/businesses"
+                className="text-sm text-[hsl(33,30%,70%)] transition-colors hover:text-accent"
+              >
+                מרכז העסקים
+              </a>
             </nav>
           </div>
           <div>
