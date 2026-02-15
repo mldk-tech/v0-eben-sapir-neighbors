@@ -4,6 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.11.0",
   "scripts": {
+    "preinstall": "node -e \"const fs=require('fs');const p='node_modules';try{if(fs.existsSync(p)&&!fs.statSync(p).isDirectory()){fs.unlinkSync(p);console.log('Removed node_modules file')}}catch(e){}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
