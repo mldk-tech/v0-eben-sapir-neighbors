@@ -5,7 +5,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           <div>
             <h3 className="font-serif text-2xl font-bold text-[hsl(40,40%,97%)]">
-              השכנים של אבן ספיר
+              השכנים באבן ספיר
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-[hsl(33,30%,70%)]">
               קהילה שכנית חמה בלב הרי יהודה. חיזוק הקשר בין השכנים, עדכונים
@@ -55,8 +55,24 @@ export function Footer() {
             </h4>
             <div className="mt-4 flex flex-col gap-3 text-sm text-[hsl(33,30%,70%)]">
               <p>מושב אבן ספיר</p>
-              <p>מועצה אזורית מטה יהודה</p>
+              <a
+                href="https://m-yehuda.org.il/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-[hsl(33,30%,70%)]/30 underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                מועצה אזורית מטה יהודה
+              </a>
               <p>הרי ירושלים, ישראל</p>
+              <a
+                href="tel:026412821"
+                className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                {'מזכירות המושב: 02-641-2821'}
+              </a>
             </div>
             <a
               href="https://chat.whatsapp.com/LJ7yzhXhVPB5Ro02taFe6C?mode=gi_t"
@@ -73,7 +89,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-[hsl(40,40%,97%)]/10 pt-8 text-center">
           <p className="text-xs text-[hsl(33,30%,60%)]">
-            {'כל הזכויות שמורות לקהילת השכנים של אבן ספיר'} &copy;{' '}
+            {'כל הזכויות שמורות לקהילת השכנים באבן ספיר'} &copy;{' '}
             {new Date().getFullYear()}
           </p>
         </div>

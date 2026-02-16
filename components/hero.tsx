@@ -45,7 +45,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(25,30%,12%)]/80 via-[hsl(25,30%,12%)]/30 to-transparent" />
       <div className="relative flex h-full flex-col items-center justify-center px-4 text-center">
         <h1 className="font-serif text-5xl font-bold leading-tight text-[hsl(40,40%,97%)] md:text-7xl lg:text-8xl text-balance">
-          השכנים של אבן ספיר
+          השכנים באבן ספיר
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[hsl(33,30%,85%)] md:text-xl">
           קהילה שכנית חמה בלב הרי יהודה

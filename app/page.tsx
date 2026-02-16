@@ -9,11 +9,14 @@ import { LandscapeBanner } from "@/components/landscape-banner"
 import { RulesSection } from "@/components/rules-section"
 import { Footer } from "@/components/footer"
 
+import { StatusWidgets } from "@/components/status-widgets"
+
 export default function Page() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <StatusWidgets />
       <AboutSection />
       <CommunitySection />
       <GallerySection />
