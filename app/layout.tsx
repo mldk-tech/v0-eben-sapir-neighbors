@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Heebo, Frank_Ruhl_Libre } from 'next/font/google'
 
+import { Chatbot } from '@/components/chatbot'
 import './globals.css'
 
 const _heebo = Heebo({ subsets: ['hebrew', 'latin'], variable: '--font-heebo' })
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
-      <body className={`${_heebo.variable} ${_frank.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${_heebo.variable} ${_frank.variable} font-sans antialiased`}>
+        {children}
+        <Chatbot />
+      </body>
     </html>
   )
 }
