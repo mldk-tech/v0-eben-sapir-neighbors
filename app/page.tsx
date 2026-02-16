@@ -8,13 +8,15 @@ import { RecyclingSection } from "@/components/recycling-section"
 import { LandscapeBanner } from "@/components/landscape-banner"
 import { RulesSection } from "@/components/rules-section"
 import { Footer } from "@/components/footer"
-import { WhatsAppFab } from "@/components/whatsapp-fab"
+
+import { StatusWidgets } from "@/components/status-widgets"
 
 export default function Page() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <StatusWidgets />
       <AboutSection />
       <CommunitySection />
       <GallerySection />
@@ -23,7 +25,6 @@ export default function Page() {
       <LandscapeBanner />
       <RulesSection />
       <Footer />
-      <WhatsAppFab />
     </main>
   )
 }

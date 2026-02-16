@@ -5,12 +5,10 @@ import Link from "next/link"
 
 const navLinks = [
   { label: "אודות", href: "#about" },
-  { label: "הקהילה", href: "#community" },
-  { label: "גלריה", href: "#gallery" },
-  { label: "שעות הדואר", href: "#post-office" },
+  { label: "קהילה", href: "#community" },
+  { label: "דואר", href: "#post-office" },
   { label: "מיחזור", href: "#recycling" },
-  { label: "כללי הקבוצה", href: "#rules" },
-  { label: "צור קשר", href: "#contact" },
+  { label: "כללים", href: "#rules" },
 ]
 
 export function Navbar() {
@@ -32,12 +30,15 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <Link
-            href="/businesses"
-            className="rounded-full bg-accent/20 px-4 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent/30"
-          >
-            מרכז העסקים
+          <Link href="/businesses" className="text-sm text-[hsl(33,30%,85%)] transition-colors hover:text-accent">
+            עסקים
           </Link>
+          <Link href="/kids" className="text-sm text-[hsl(33,30%,85%)] transition-colors hover:text-accent">
+            פעילויות
+          </Link>
+          <a href="https://chat.whatsapp.com/LJ7yzhXhVPB5Ro02taFe6C?mode=gi_t" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#25D366] px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-[#20bd5a]">
+            וואטסאפ
+          </a>
         </div>
         <button
           onClick={() => setOpen(!open)}
@@ -65,13 +66,15 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <Link
-            href="/businesses"
-            onClick={() => setOpen(false)}
-            className="mt-2 block rounded-full bg-accent/20 px-4 py-2 text-center text-sm font-medium text-accent transition-colors hover:bg-accent/30"
-          >
-            מרכז העסקים
+          <Link href="/businesses" onClick={() => setOpen(false)} className="block py-3 text-sm text-[hsl(33,30%,85%)] transition-colors hover:text-accent">
+            עסקים
           </Link>
+          <Link href="/kids" onClick={() => setOpen(false)} className="block py-3 text-sm text-[hsl(33,30%,85%)] transition-colors hover:text-accent">
+            פעילויות
+          </Link>
+          <a href="https://chat.whatsapp.com/LJ7yzhXhVPB5Ro02taFe6C?mode=gi_t" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex w-fit rounded-full bg-[#25D366] px-4 py-2 text-xs font-bold text-white">
+            וואטסאפ
+          </a>
         </div>
       )}
     </nav>
